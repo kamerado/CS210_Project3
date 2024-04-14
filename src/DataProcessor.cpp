@@ -19,20 +19,20 @@ void DataProcessor::searchItem() {
     string name;
     int input = -1;
 
-    input = searchItemMenu();
+    input = searchItemMenu(); // Display search item menu to get input.
     while (input != 2) {
-        name = getString("Enter item name: ");
+        name = getString("Enter item name: "); // get item name to search for.
 
-        if (this->dict.find(name) == this->dict.end()) {
-            cout << "Item not found." << endl;
-        } else {
-            cout << this->dict.find(name)-> first << " " << this->dict.find(name)->second << endl;
+        if (this->dict.find(name) == this->dict.end()) { // If item name does not exist,
+            cout << "Item not found." << endl; // Display error message.
+        } else { // Else.
+            cout << this->dict.find(name)-> first << " " << this->dict.find(name)->second << endl; // Display item with count.
         }
-        waitEnter(false);
-        clearScreen();
+        waitEnter(false); // Wait enter,
+        clearScreen(); // Clear screen.
 
-        input = searchItemMenu();
-    }
+        input = searchItemMenu(); // Display search item menu to get user input.
+    } // Else exit.
 }
 
 // read input file contents into map, counting the number of occurances.
@@ -63,16 +63,14 @@ int DataProcessor::readInput(string fileName) {
         inFile >> name;
     }
 
-    cout << "Successfully read " << fileName << endl << endl; 
-
     // Close file.
     inFile.close();
     return 0;
 }
 
-void DataProcessor::createDatFile(string inFileName) {
-    ofstream outFile;
-    string outFileName = inFileName.substr(0, inFileName.size()-3) + "dat";
+void DataProcessor::createDatFile(string inFileName) { // Create .dat file.
+    ofstream outFile; // Open output file stream.
+    string outFileName = inFileName.substr(0, inFileName.size()-3) + "dat"; // Generate new file name.
 
     // Open output file.
     cout << "Opening " << outFileName << "." << endl;
@@ -87,24 +85,22 @@ void DataProcessor::createDatFile(string inFileName) {
         outFile << i->first << " " << i->second << endl;
     }
 
-    cout << "Successfully generated " << outFileName << endl << endl;
-
     // Close file.
     outFile.close();
 }
 
-void DataProcessor::displayCount() {
+void DataProcessor::displayCount() { // Display the item counts.
     for (auto i = this->dict.begin(); i != this->dict.end(); i++) {
-        cout << i->first << " " << i->second << endl;
+        cout << i->first << " " << i->second << endl; // Display item name and count.
     }
-    waitEnter(false);
-    clearScreen();
+    waitEnter(false); // Wait for enter to user can view results.
+    clearScreen(); // Clear screen.
 }
 
-void DataProcessor::displayHistogram() {
-    for (auto i = this->dict.begin(); i != this->dict.end(); i++) {
-        cout << i->first << " " << string(i->second, '*') << endl;
+void DataProcessor::displayHistogram() { // Display a historgram of the item counts.
+    for (auto i = this->dict.begin(); i != this->dict.end(); i++) { // For each item in dictionary,
+        cout << i->first << " " << string(i->second, '*') << endl; // Display item name and count.
     }
-    waitEnter(false);
-    clearScreen();
+    waitEnter(false); // Wait for enter so user can view results.
+    clearScreen(); // Clear screen.
 }

@@ -13,40 +13,31 @@ int main() {
     int input = -1;
     auto dataProcessor = make_shared<DataProcessor>();
     
-    searchFile(dataProcessor);
+    searchFile(dataProcessor); // Search file.
 
-    input = mainMenu();
-    while (input != 5) {
+    input = mainMenu(); // Display menu,
+    while (input != 5) { // While user not exit.
         switch (input) {
             case 1:
-                dataProcessor->displayCount();
+                dataProcessor->displayCount(); // If user enters 1, display counts,
                 break;
             case 2:
-                dataProcessor->displayHistogram();
+                dataProcessor->displayHistogram(); // If user enters 2, display histograms,
                 break;
             case 3:
-                dataProcessor->searchItem();
+                dataProcessor->searchItem(); // If user enters 3, go to search item,
                 break;
             case 4:
-                searchFile(dataProcessor);
+                searchFile(dataProcessor); // If user enters 4, get new file,
                 break;
-            case 5:
+            case 5: // If 5, exit.
                 break;
-            default:
+            default: // Display error message.
                 cout << "Please enter valid input. (1-5)" << endl;
                 break;
         }
-        input = mainMenu();
-        
-        // if (dataProcessor->readInput(fileName) == 0) {
-        //     dataProcessor->createDatFile(fileName);
-        //     waitEnter(true);
-        //     clearScreen();
-        //     
-        //     input = mainMenu();
-        //     dataProcessor = make_unique<DataProcessor>();
-        // }
+        input = mainMenu(); // Display menu to get user input.
     }
 
-    return 0;
+    return 0; // Return 0.
 }

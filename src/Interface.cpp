@@ -54,7 +54,7 @@ int Interface::mainMenu() {
     return input;
 }
 
-int Interface::searchItemMenu() {
+int Interface::searchItemMenu() { // Displays menu for searching item.
     int input = -1;
 
     while (input == -1) {
@@ -68,7 +68,7 @@ int Interface::searchItemMenu() {
     return input;
 }
 
-string Interface::getString(string prompt) {
+string Interface::getString(string prompt) { // Gets string from user.
     string input;
 
     cout << prompt;
@@ -77,7 +77,7 @@ string Interface::getString(string prompt) {
     return input;
 }
 
-int Interface::getInt() {
+int Interface::getInt() { // Gets int from user.
     int input;
 
     try { // Try
@@ -98,7 +98,7 @@ int Interface::getInt() {
     return input;
 }
 
-void Interface::searchFile(shared_ptr<DataProcessor>& dataProcessor) {
+void Interface::searchFile(shared_ptr<DataProcessor>& dataProcessor) { // Searches file.
     string fileName;
     while (true) {
         dataProcessor = make_unique<DataProcessor>();
