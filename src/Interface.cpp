@@ -26,17 +26,17 @@ void Interface::waitEnter(bool inputBufferClear) {
     }
 }
 
-string Interface::stringToLower(string inStr) {
-    stringstream outStr;
+// string Interface::stringToLower(string inStr) {
+//     stringstream outStr;
 
-    for (char i: inStr) {
-        outStr << static_cast<char>(tolower(i));
-    }
+//     for (char i: inStr) {
+//         outStr << static_cast<char>(tolower(i));
+//     }
 
-    return outStr.str();
-}
+//     return outStr.str();
+// }
 
-int Interface::mainMenu() {
+int Interface::mainMenu() { // Displays main menu.
     int input = -1;
 
     while (input == -1) {
@@ -62,6 +62,11 @@ int Interface::searchItemMenu() { // Displays menu for searching item.
         cout << "1. Search item" << endl;
         cout << "2. Main menu" << endl;
         input = getInt();
+        if ((input > 2) || (input < 1)) {
+            clearScreen();
+            cout << "Invalid input option." << endl;
+            input = -1;
+        }
     }
 
     clearScreen();
