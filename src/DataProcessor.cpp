@@ -92,3 +92,19 @@ void DataProcessor::createDatFile(string inFileName) {
     // Close file.
     outFile.close();
 }
+
+void DataProcessor::displayCount() {
+    for (auto i = this->dict.begin(); i != this->dict.end(); i++) {
+        cout << i->first << " " << i->second << endl;
+    }
+    waitEnter(false);
+    clearScreen();
+}
+
+void DataProcessor::displayHistogram() {
+    for (auto i = this->dict.begin(); i != this->dict.end(); i++) {
+        cout << i->first << " " << string(i->second, '*') << endl;
+    }
+    waitEnter(false);
+    clearScreen();
+}

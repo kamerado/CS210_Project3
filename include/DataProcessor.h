@@ -15,6 +15,8 @@ class DataProcessor {
         int readInput(string fileName);
         void createDatFile(string inFileName);
         void searchItem();
+        void displayCount();
+        void displayHistogram();
 
     private:
         // Define map to store data.

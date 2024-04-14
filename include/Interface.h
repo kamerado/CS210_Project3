@@ -1,6 +1,9 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
+#include <memory>
+#include "DataProcessor.h"
+
 using namespace std;
 #pragma once
 
@@ -12,6 +15,7 @@ namespace Interface {
     int searchItemMenu();
     string getString(string prompt);
     int getInt();
+    void searchFile(shared_ptr<DataProcessor>& dataProcessor);
 };
 
 

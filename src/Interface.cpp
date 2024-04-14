@@ -2,6 +2,7 @@
 #include <sstream>
 #include <limits>
 #include <filesystem>
+#include <memory>
 
 #include "../include/Interface.h"
 #include "../include/DataProcessor.h"
@@ -40,8 +41,11 @@ int Interface::mainMenu() {
 
     while (input == -1) {
         cout << string(20, '*') << endl;
-        cout << "1. Enter file name" << endl;
-        cout << "2. Exit" << endl;
+        cout << "1. Display item counts" << endl;
+        cout << "2. Display item histogram" << endl;
+        cout << "3. Search item" << endl;
+        cout << "4. Enter new file" << endl;
+        cout << "5. Exit" << endl;
 
         input = getInt();
     }
@@ -82,8 +86,8 @@ int Interface::getInt() {
             cin.clear(); // Clear the error flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore invalid input
             throw string("Please enter numeric values only.\n"); // Throw exception.
-        } else if ((input < 1) || (input > 2)) { // If user inputs invalid value.
-            throw string("Please enter 1 or 2.\n"); // Throw excpetion.
+        } else if ((input < 1) || (input > 5)) { // If user inputs invalid value.
+            throw string("Please enter a number from 1 and 5.\n"); // Throw excpetion.
         }
     } catch (string error) { // Catch exception.
         input = -1; // Set input to intitial value do when program exits, loop will continue until correct input is entered.
@@ -92,4 +96,19 @@ int Interface::getInt() {
     }
 
     return input;
+}
+
+void Interface::searchFile(shared_ptr<DataProcessor>& dataProcessor) {
+    string fileName;
+    while (true) {
+        dataProcessor = make_unique<DataProcessor>();
+        fileName = getString("Enter file name: ");
+        if (dataProcessor->readInput(fileName) == 0) {
+            dataProcessor->createDatFile(fileName);
+            clearScreen();
+            break;
+        } else {
+            cout << "An error has occored, enter another file." << endl;
+        }
+    }
 }
