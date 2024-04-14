@@ -12,6 +12,7 @@ int main() {
     string fileName;
     int input = -1;
     auto dataProcessor = make_shared<DataProcessor>();
+    clearScreen();
     
     searchFile(dataProcessor); // Search file.
 
