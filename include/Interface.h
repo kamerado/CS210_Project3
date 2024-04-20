@@ -4,6 +4,15 @@
 #include <memory>
 #include "DataProcessor.h"
 
+/*
+
+    name: Kameron Coolong
+    date: 4/20/2024
+
+    Interface.h
+
+*/
+
 using namespace std;
 #pragma once
 

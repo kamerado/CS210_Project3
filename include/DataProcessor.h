@@ -4,6 +4,15 @@
 #include <string>
 #include <map>
 
+/*
+
+    name: Kameron Coolong
+    date: 4/20/2024
+
+    DataProcessor.h
+
+*/
+
 using namespace std;
 
 class DataProcessor {

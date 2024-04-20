@@ -5,6 +5,15 @@
 #include "../include/Interface.h"
 #include "../include/DataProcessor.h"
 
+/*
+
+    name: Kameron Coolong
+    date: 4/20/2024
+
+    main.cpp
+
+*/
+
 using namespace std;
 using namespace Interface;
 

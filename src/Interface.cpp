@@ -7,6 +7,15 @@
 #include "../include/Interface.h"
 #include "../include/DataProcessor.h"
 
+/*
+
+    name: Kameron Coolong
+    date: 4/20/2024
+
+    Interface.cpp
+
+*/
+
 using namespace std;
 using namespace Interface;
 
@@ -103,7 +112,7 @@ int Interface::getInt() { // Gets int from user.
     return input;
 }
 
-void Interface::searchFile(shared_ptr<DataProcessor>& dataProcessor) { // Searches file.
+void Interface::searchFile(shared_ptr<DataProcessor>& dataProcessor) { // Searches for file.
     string fileName;
     while (true) {
         dataProcessor = make_unique<DataProcessor>();
