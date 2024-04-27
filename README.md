@@ -1,4 +1,5 @@
 * Summarize the project and what problem it was solving.
+
 This project was made to take in and proccess data in the from of a txt file conatining the produce purchased during a day.
 The data is ran parsed and added to a map, that stores the item name and number of times the item appears in the file, counting the number of times the item is purchased.
 The data is then added to a dat file with the item name and the count of how many times the item is purchased, the program also allows the user to search for individual items and see the counts,
